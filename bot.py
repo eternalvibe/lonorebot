@@ -6,7 +6,9 @@ import os
 from pathlib import Path
 
 # ============ НАСТРОЙКИ ============
-BOT_TOKEN = "8844469542:AAFLw4NsCHrR-msdfYb74oqMH8qEI7tr8Wc"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+if not BOT_TOKEN:
+    raise ValueError("Токен BOT_TOKEN не найден в .env файле!")
 
 # Bothost автоматически задаёт DATA_DIR=/app/data
 DATA_DIR = Path(os.environ.get("DATA_DIR", "/app/data"))
