@@ -2,12 +2,19 @@ import sqlite3
 import re
 import telebot
 from telebot import types
+import os
+from pathlib import Path
 
 # ============ НАСТРОЙКИ ============
 BOT_TOKEN = "8844469542:AAFLw4NsCHrR-msdfYb74oqMH8qEI7tr8Wc"
-DB_PATH = "mafia_tournament.db"
 
-ADMIN_IDS = {8595107331, 8025502507}  # UID администраторов
+# Bothost автоматически задаёт DATA_DIR=/app/data
+DATA_DIR = Path(os.environ.get("DATA_DIR", "/app/data"))
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+DB_PATH = DATA_DIR / "mafia_tournament.db"
+
+ADMIN_IDS = {8595107331, 8025502507, 1955476231}  # UID администраторов
 # ===================================
 
 bot = telebot.TeleBot(BOT_TOKEN)
