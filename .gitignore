@@ -1,0 +1,6 @@
+mafia_tournament.db
+*.db
+*.sqlite
+*.sqlite3
+__pycache__/
+.env
